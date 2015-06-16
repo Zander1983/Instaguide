@@ -1,0 +1,84 @@
+<navigation></navigation>
+
+<div class="container">
+    <page-header content="vm.pageHeader"></page-header>
+
+    <form class="form-horizontal" role="form"  ng-submit="vm.onSubmit()">
+        <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+        <div class="form-group">
+            <label for="inputFirstName" class="col-sm-4 control-label">First Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" ng-model="vm.formData.firstName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSurname" class="col-sm-4 control-label">Surname</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="inputSurname" placeholder="Surname" ng-model="vm.formData.surname">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-4 control-label">Email</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="vm.formData.email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-4 control-label">Password</label>
+            <div class="col-sm-4">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="vm.formData.password">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+           
+                <label for="isGuide" class="col-sm-4 control-label">Are you a tour guide?</label>
+                <input id="isGuide" type="checkbox" ng-model="vm.formData.isGuide" aria-label="Toggle ngHide"><br/>
+
+        </div>
+
+        <div ng-show="vm.formData.isGuide">
+            <div class="form-group">        
+         
+                <label for="Autocomplete" class="col-sm-4 control-label">Tour starting point</label>
+                <div class="col-sm-4">
+                    <input type="text" id="Autocomplete"  class="form-control" ng-model="vm.formData.startingPoint" ng-autocomplete="result" details="details" options="options"/>
+                 </div>   
+            </div>
+
+            <div class="form-group">     
+                        <label for="topics" class="col-sm-4 control-label">Topics</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="topics" placeholder="Topics (comma seperated)" ng-model="vm.formData.topics">
+                        </div>
+            </div>
+
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Tour times e.g 9am, 11am etc</legend>
+                        <div class="form-group">     
+                                    <label for="monFri" class="col-sm-4 control-label">Mon - Fri </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="monFri" placeholder="Times (comma seperated)" ng-model="vm.formData.monFri">
+                                    </div>
+                        </div>
+                        <div class="form-group">     
+                                    <label for="monFri" class="col-sm-4 control-label">Sat - Sun</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="monFri" placeholder="Times (comma seperated)" ng-model="vm.formData.satSun">
+                                    </div>
+                        </div>
+                </legend>     
+            </fieldset>   
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-10">
+                <button type="submit" class="btn btn-default">Register</button>
+            </div>
+        </div>
+    </form>
+
+    <footer-generic></footer-generic>
+</div>    

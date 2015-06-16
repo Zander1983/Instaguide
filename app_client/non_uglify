@@ -1,0 +1,19 @@
+    <script src='app.js'></script>
+    <script src='home/home.controller.js'></script>
+    <script src='about/about.controller.js'></script>
+    <script src='guideDetail/guideDetail.controller.js'></script>    
+    <script src='common/services/geolocationData.service.js'></script>
+    <script src='common/services/instaguideData.service.js'></script>
+    <script src='common/filters/formatDistance.filter.js'></script>
+    <script src='common/filters/formatTimes.filter.js'></script>
+    <script src='common/filters/addHtmlLineBreaks.filter.js'></script>
+    <script src='common/directives/ratingStars/ratingStars.directive.js'></script>
+    <script src='common/directives/footerGeneric/footerGeneric.directive.js'></script>
+    <script src='common/directives/navigation/navigation.directive.js'></script>
+    <script src='common/directives/pageHeader/pageHeader.directive.js'></script>
+    <script src='reviewModal/reviewModal.controller.js'></script>
+
+
+
+
+        <script src="/angular/instaguide.min.js"></script>

@@ -1,0 +1,83 @@
+<navigation></navigation>
+
+<div class="container">
+    <page-header content="vm.pageHeader"></page-header>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-9">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <p class="rating" rating-stars rating-num="vm.data.guide.rating"></p>
+              <p>{{ vm.data.guide.startingPoint }}</p>
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h2 class="panel-title">Tour times</h2>
+                </div>
+                <div class="panel-body">
+                  <p>
+                    <span class="opening-time">Mon - Fri: {{ vm.data.guide.monFri }} </span>
+                  </p>
+                  <p>
+                    <span class="opening-time">Sat - Sun: {{ vm.data.guide.satSun }} </span>
+                  </p>
+                </div>
+              </div>
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h2 class="panel-title">Topics</h2>
+                </div>
+                <div class="panel-body">
+                  <span class="label label-warning label-topic" ng-repeat="topic in vm.data.guide.topics">
+                    <span class="glyphicon glyphicon-ok"></span> 
+                    {{ topic }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 location-map">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h2 class="panel-title">Location map</h2>
+                </div>
+                <div class="panel-body">
+                  <img src="http://maps.googleapis.com/maps/api/staticmap?center={{ vm.data.guide.coords[1] }},{{ vm.data.guide.coords[0] }}&amp;zoom=17&amp;size=400x350&amp;sensor=false&amp;markers={{ vm.data.guide.coords[1] }},{{ vm.data.guide.coords[0] }}&amp;scale=2" class="img-responsive img-rounded">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="panel panel-primary review-panel">
+                <div ng-switch="vm.isLoggedIn" class="panel-heading">
+                    <a href="/login" ng-switch-default class="btn btn-default pull-right" >Login to Review</span>
+                    <a ng-switch-when="true" ng-click="vm.popupReviewForm()" class="btn btn-default pull-right">Add review</a>
+                  <h2 class="panel-title">Customer reviews</h2>
+                </div>
+                <div class="panel-body review-container">
+                  <div class="row">
+                    <div class="review" ng-repeat="review in vm.data.guide.reviews | orderBy:'createdOn':true">
+                      <div class="well well-sm review-header">
+                        <span class="rating-stars" rating-stars rating-num="review.rating"></span>
+                        <span class="reviewAuthor">{{ review.author }}</span>
+                        <small class="reviewTimestamp">{{ review.createdOn | date : 'd MMMM yyyy' }}</small>
+                      </div>
+                      <div class="clearfix">
+                        <div class="col-xs-12">
+                          <p ng-bind-html="review.reviewText | addHtmlLineBreaks"></p>
+                        </div>
+                      </div>  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+          <p class="lead">{{ vm.data.guide.firstName }} {{ vm.data.guide.surname }} is on InstaGuide because they are an approved local guide.</p>
+          <p>If you've been on a tour with this guide,  please leave a review to help other people just like you.</p>
+        </div>
+      </div>
+
+    <footer-generic></footer-generic>
+</div>    
