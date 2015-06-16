@@ -1,6 +1,11 @@
 var mongoose = require( 'mongoose' );
 
 var dbURI = 'mongodb://127.0.0.1/instaguide';
+
+if (process.env.NODE_ENV === 'production') {
+	dbURI = 'mongodb://heroku_wpkpqs6w:ggooqc6j4rl2un1p0vkue1sfk1@ds047682.mongolab.com:47682/heroku_wpkpqs6w';
+}
+
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function () {
